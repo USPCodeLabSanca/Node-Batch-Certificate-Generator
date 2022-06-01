@@ -52,11 +52,11 @@ fs.readFile()
 ```
 Lê um arquivo e não existe no navegador, apenas no Node. 
 
-A documentação guiada do Node é amigável e disponível em [https://nodejs.dev/learn/introduction-to-nodejs](nodejs.dev)
+A documentação guiada do Node é amigável e disponível em [nodejs.dev](https://nodejs.dev/learn/introduction-to-nodejs)
 
 ### fs
 Módulo nativo do node para leitura de um arquivo no servidor. 
-O guia para utilizar o módulo está disponível em [https://nodejs.dev/learn/reading-files-with-nodejs](Reading Files with Node.js)
+O guia para utilizar o módulo está disponível em [Reading Files with Node.js](https://nodejs.dev/learn/reading-files-with-nodejs)
 
 ### dynamic-html-pdf
 A biblioteca dynamic-html-pdf gera pdfs a partir de:
@@ -104,7 +104,7 @@ const getCertificatePDF = (name, validValuesData, validValuesQty) => {
         }).then;
 }
  ```
-A documentação do projeto está disponível em [https://www.npmjs.com/package/dynamic-html-pdf](sua página no npmjs)
+A documentação do projeto está disponível em [sua página no npmjs](https://www.npmjs.com/package/dynamic-html-pdf)
 
 ## Etapas para o desenvolvimento
 ### 1. Implementar template.html para doc estático
@@ -117,7 +117,7 @@ O headless browser embutido no dynamic-html-pdf é antigo, e não possui funcion
 Portanto, a estilização deverá utilizar apenas box-model (border, padding, margin). Em compensação, os certificados tem tamanho fixo (30cm x 21cm) e todas as medidas serão utilizadas em cm, o que facilita o desenvolvimento. 
 
 
-O certificado está disponivel no (https://drive.google.com/file/d/18JfeqGIeDuuOtQJSbj999IvMteTzbUxh/view?usp=sharing)[drive do codelab].  Não é necessária uma reprodução 100% fiel, o design é uma base, mas todas seguintes informações devem estar presentes: 
+O certificado está disponivel no [drive do codelab](https://drive.google.com/file/d/18JfeqGIeDuuOtQJSbj999IvMteTzbUxh/view?usp=sharing). Não é necessária uma reprodução 100% fiel, o design é uma base, mas todas seguintes informações devem estar presentes: 
 
 
 1. Nome da iniciativa (dev.learn 2019 no subtitulo)
@@ -143,7 +143,7 @@ Das informações em 1,9 algumas são estáticas (não mudam de certificado para
 A biblioteca utiliza a sintaxe `{{variable}}` no HTML  para acessar uma variável definia em `document.context.variable`
 
 
-É necessário modificartemplate.html utilizando a sintaxe específica [https://www.npmjs.com/package/dynamic-html-pdf](verificar documentação).
+É necessário modificartemplate.html utilizando a sintaxe específica [verificar documentação](https://www.npmjs.com/package/dynamic-html-pdf).
 
 ### 4. Gerar Certificado Dinâmico
 Passos: 
@@ -167,7 +167,7 @@ abbey, 3, pizza
 mrugesh, 4, ice cream
 ```
  
-Você pode ler mais sobre csv neste [https://www.freecodecamp.org/portuguese/news/o-que-e-um-arquivo-csv-e-como-abrir-esse-formato-de-arquivo/](artigo curto)
+Você pode ler mais sobre csv neste [artigo curto](https://www.freecodecamp.org/portuguese/news/o-que-e-um-arquivo-csv-e-como-abrir-esse-formato-de-arquivo/)
 
 
 Utilizaremos csv pois uma tabela simples do excel pode ser exportada como csv, e os formulários do google geram tabelas (que geram csvs), os quais utilizamos para guardar informações de inscritos em eventos.
@@ -175,7 +175,7 @@ Utilizaremos csv pois uma tabela simples do excel pode ser exportada como csv, e
 Antes de fazer um csv com todos os casos de teste, é interessante testar com um só para que o escopo dos possíveis erros seja reduzido. Lembre-se de utilizar o modelo definido no passo 2.
 
 ### 6. Iplementar função para ler .csv
-Utilizar como base artigo [https://nodejs.dev/learn/reading-files-with-nodejs](Reading Files with Node.js)
+Utilizar como base artigo [Reading Files with Node.js](https://nodejs.dev/learn/reading-files-with-nodejs)
 
 ### 7. Gerar certificado dinâmico usando uma linha do csv
 
@@ -195,9 +195,9 @@ Caso sobre tempo, poderão ser adicionados os seguintes passos:
 Pode ser utilizada a biblioteca `Joi` para isso
 
 ### 12. Enviar certificados por e-mail
-Utilizar biblioteca NodeMailer, [https://devdotcode.com/how-to-send-email-from-node-js-api-using-gmail/](ler artigo)
+Utilizar biblioteca NodeMailer, [ler artigo](https://devdotcode.com/how-to-send-email-from-node-js-api-using-gmail/)
 
 
 ## Exemplo de implementação
-Implementamos um gerador de certificados https://github.com/nluizsoliveira/Certificate-Generator que pode ser utilizado para verificar detalhes de implementação 
+Implementamos um [gerador de certificados](https://github.com/nluizsoliveira/Certificate-Generator) que pode ser utilizado para verificar detalhes de implementação 
 
