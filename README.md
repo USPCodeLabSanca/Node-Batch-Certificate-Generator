@@ -104,7 +104,7 @@ const getCertificatePDF = (name, validValuesData, validValuesQty) => {
         }).then;
 }
  ```
-A documentação do projeto está disponível em (https://www.npmjs.com/package/dynamic-html-pdf)[sua página no npmjs]
+A documentação do projeto está disponível em [https://www.npmjs.com/package/dynamic-html-pdf](sua página no npmjs)
 
 ## Etapas para o desenvolvimento
 ### 1. Implementar template.html para doc estático
