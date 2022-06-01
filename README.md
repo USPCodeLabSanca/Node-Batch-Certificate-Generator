@@ -20,11 +20,18 @@ A geração automática dos certificados, com a biblioteca **dynamic-html-pdf**,
 ### node.js
 Node é um ambiente de execução de javascript em servidores. Historicamente javascript roda nos browsers, cada um com sua engine que processa os scripts. Por exemplo, o Firefox utiliza a SpiderMonkey, e o Chrome utiliza o V-8. 
 
+
+O node encapsula a V-8, engine do chrome, e adiciona funções relevantes ao ambiente do servidor. 
+
+
 As engines devem implementar as funcionalidades básicas do javascript (Chamado muitas vezes de Vanilla Js) de acordo com as especificações de EcmaScript. 
+
 
 A EcmaScript é uma entidade de padronização responsável por definir as atuais e futuras funcionalidades básicas do Javascript. Apesar de terem o mesmo comportamento esperado, cada funcionalidade pode ser implementada de maneira diferente em cada engine. Não apenas isso, cada Engine pode ter funcionalidades extras que não estão definidas na Ecma. 
 
+
 Por exemplo, a versão EcmaScript2015 (Muitas vezes chamada de ES6) definiu uma série de funcionalidades que melhoraram o uso do Javascript:
+
 
 ![ES6 Features](https://i.imgur.com/8Rm7MRD.png)
 
@@ -37,6 +44,7 @@ Além das funcionalidades da engine, cada ambiente de execução tem funções e
     document.getElementById()
 ```
 Não faz parte do JS Vanilla. É uma função extra implementada nos browsers que permite acesso a elementos HTML do DOM. No ambiente de execução do browser isso faz sentido. 
+
 
 Já o node é um ambiente de execução de servidor. Ele não possui essa função, pois no backend não há nenhum HTML-DOM sendo renderizado. Mas possui funções que fazem sentido em seu contexto, por exemplo:  
 ```node
