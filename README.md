@@ -189,5 +189,7 @@ Pode ser utilizada a biblioteca `Joi` para isso
 ### 12. Enviar certificados por e-mail
 Utilizar biblioteca NodeMailer, [https://devdotcode.com/how-to-send-email-from-node-js-api-using-gmail/](ler artigo)
 
- 
+
+## Exemplo de implementação
+Implementamos um gerador de certificados https://github.com/nluizsoliveira/Certificate-Generator que pode ser utilizado para verificar detalhes de implementação 
 
