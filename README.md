@@ -238,3 +238,18 @@ Isso irá criar uma pasta `node_modules/` com os arquivos das dependências e sa
 
 **Rodar um script node**
 Utilize `npm run script`, sendo script definido em package.json
+
+## Instruções Github
+Você precisará criar uma branch para implementar a sua parte do projeto.
+Para isto, utilize a interface do VSCode ou utilize o comando:
+```bash
+git checkout -b branchName
+```
+E desenvolva normalmente na sua branch.
+
+
+Pode ser que a branch main tenha sido atualizada. Você não precisa necessariamente atualizar a sua branch com modificações na main caso sua função esteja independente de mudanças na main. Caso contrário, você pode atualizar sua branch com mudanças feitas pelos outros na main com:
+```bash
+git pull origin main
+```
+
