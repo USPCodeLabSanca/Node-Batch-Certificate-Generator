@@ -32,6 +32,10 @@ const readCsvLine(csvLine){
     
 */
 
+const fs = require('fs')
+const pdf = require('dynamic-html-pdf');
+let path = require('path');
+
 const campusInfo = {
     "sanca": {
         name: "USPCodeLab São Carlos",
@@ -94,3 +98,28 @@ let context = {
 
 console.log(context)
 console.log(months)
+
+let templatePath = path.join(__dirname, 'template.html');
+
+let html = fs.readFileSync(templatePath, 'utf8');
+
+let options = {
+    orientation: "portrait",
+    width: "30cm",
+    height: "21cm"
+};
+
+let document = {
+    type: 'file',     // 'file' or 'buffer'
+    template: html,
+    context: context,
+    path: "./certificate.pdf"    // it is not required if type is buffer
+};
+
+pdf.create(document, options)
+    .then(res => {
+        console.log(res)
+    })
+    .catch(error => {
+        console.error(error)
+    });
