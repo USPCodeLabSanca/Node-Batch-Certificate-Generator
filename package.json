@@ -1,0 +1,24 @@
+{
+  "name": "node-batch-certificate-generator",
+  "version": "1.0.0",
+  "description": "## Sobre a aplicação",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node main.js",
+    "serve": "node main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/USPCodeLabSanca/Node-Batch-Certificate-Generator.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/USPCodeLabSanca/Node-Batch-Certificate-Generator/issues"
+  },
+  "homepage": "https://github.com/USPCodeLabSanca/Node-Batch-Certificate-Generator#readme",
+  "dependencies": {
+    "dynamic-html-pdf": "^1.0.4"
+  }
+}

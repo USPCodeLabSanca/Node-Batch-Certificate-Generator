@@ -201,3 +201,40 @@ Utilizar biblioteca NodeMailer, [ler artigo](https://devdotcode.com/how-to-send-
 ## Exemplo de implementação
 Implementamos um [gerador de certificados](https://github.com/nluizsoliveira/Certificate-Generator) que pode ser utilizado para verificar detalhes de implementação 
 
+
+# Instruções adicionais
+
+## Sobre Github
+Não é mais possível clonar e contribuir um repositório sem um Personal Access Token ou chave SSH. 
+
+Recomendo o uso de uma Chave SSH, mas o token é suficiente 
+
+Para isso, leia os tutoriais: 
+- https://docs.github.com/pt/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token
+- https://docs.github.com/en/authentication/connecting-to-github-with-ssh/
+## Sobre node
+A terminação dos arquivos em node é `.js`.
+Por exemplo, você pode criar um arquivo
+`main.js` ou `server.js` e executá-lo com 
+
+```
+node main.js
+```
+## Sobre NPM
+NPM singifca Node Package Manager. Ele é o programa pelo qual você irá salvar localmente as dependências do seu projeto. Pois é ruim salvar dependencias globalmente 
+
+Para instalar uma dependencia, primeiro utilize:
+
+```bash
+npm init
+```
+Em seguida, utilize o comando
+```
+npm install library --save
+```
+Para instalar o pacote e salvar seu nome em package.json
+
+Isso irá criar uma pasta `node_modules/` com os arquivos das dependências e salvar seu nome em `package.json`
+
+**Rodar um script node**
+Utilize `npm run script`, sendo script definido em package.json
