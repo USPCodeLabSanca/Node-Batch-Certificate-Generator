@@ -1,16 +1,17 @@
-const fs = require('fs');
-let path = require('path');
-
-const filePath = path.join(__dirname, 'data.csv')
-console.log(filePath)
-
-// https://stackoverflow.com/questions/6831918/node-js-read-a-text-file-into-an-array-each-line-an-item-in-the-array
 // .replace(/\r\n/g,'\n').split('\n')
 
-fs.readFile(filePath, 'utf8', (err, data)=>{
+const fs = require('fs')
+let path = require('path');
+
+let csvPath = path.join(__dirname, 'example.csv');
+const charset = "utf8";
+fs.readFile(csvPath, charset, (err, data)=>{
     if(err){
         console.log(err)
-        return;
+    } else{
+        dataArray = data.replace(/\r\n/g,'\n').split('\n')
+        for(line of dataArray){
+            console.log("line: ", line)
+        }
     }
-    console.log(data)
 })

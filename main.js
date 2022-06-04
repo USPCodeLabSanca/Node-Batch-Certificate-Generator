@@ -56,20 +56,22 @@ console.log(context)
 console.log(months)
 
 let templatePath = path.join(__dirname, 'template.html');
+let certificatePath = path.join(__dirname, 'certificate.pdf');
 
 let html = fs.readFileSync(templatePath, 'utf8');
 
 let options = {
-    orientation: "portrait",
+    orientation: "landscape", // portrait or landscape 
     width: "30cm",
     height: "21cm"
 };
 
+// batch (processamento em lotes)
 let document = {
     type: 'file',     // 'file' or 'buffer'
     template: html,
     context: context,
-    path: "./certificate.pdf"    // it is not required if type is buffer
+    path: certificatePath   // it is not required if type is buffer
 };
 
 pdf.create(document, options)
