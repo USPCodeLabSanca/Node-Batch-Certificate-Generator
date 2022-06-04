@@ -11,15 +11,15 @@ const campusInfo = {
     },
     "leste": {
         name: "USPCodeLab Leste",
-        president: "Não sei Leste Presidente",
-        vicePresident: "Não sei Leste Vice",
-        professor: "Não sei Leste Professor"
+        president: "Rodrigo Dorneles Ferreira de Souza",
+        vicePresident: "Yago Silva",
+        professor: "Daniel De Angelis Cordeiro"
     },
     "butanta": {
         name: "USPCodeLab Butanta",
-        president: "Não sei Butanta Presidente",
-        vicePresident: "Não sei Butanta Vice",
-        professor: "Não sei Butanta Professor"
+        president: "Gabriel Fernandes Mota",
+        vicePresident: "Luiz Carlos Costa da Silva",
+        professor: "Alfredo Goldman"
     },
     "ufabc": {
         name: "CodeLab UFABC",
