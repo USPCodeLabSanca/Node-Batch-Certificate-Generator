@@ -1,5 +1,5 @@
 const fs = require('fs')
-const pdf = require('dynamic-html-pdf');
+const pdf = require('dynamic-html-pdf'); //objto no sentido de instancia de classes
 let path = require('path');
 
 const campusInfo = {
