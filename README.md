@@ -253,3 +253,5 @@ Pode ser que a branch main tenha sido atualizada. Você não precisa necessariam
 git pull origin main
 ```
 
+test if users with no admin role can approve PRs
+
