@@ -1,6 +1,7 @@
 const fs = require('fs')
 const pdf = require('dynamic-html-pdf'); //objto no sentido de instancia de classes
 let path = require('path');
+const csv_parser = require('./csv-parser');
 
 const campusInfo = {
     "sanca": {
@@ -29,33 +30,23 @@ const campusInfo = {
     }, 
 }
 
-const months = {
-    1: "Janeiro",
-    2: "Fevereiro"
+
+let info = csv_parser(path.join(__dirname,"info.csv"), "utf-8")
+
+for (const line of info) {
+    line.campusName = campusInfo[line.campus].name
+    line.campusPresident = campusInfo[line.campus].president
+    line.campusVicePresident = campusInfo[line.campus].vicePresident
+    line.campusProfessor = campusInfo[line.campus].professor
+
+    // info[0].presidentRole = `Presidente do ${campusInfo[info[0].campus].president}`
+    // info[0].professorRole = `Prof. Tutora do ${campusInfo[info[0].campus].professor}`
 }
 
-let context = {
-    campus: campusInfo.sanca.name,
-    title: "dev.learn(2019.1)",
-    name: "Nome Sobrenome",
-    nusp: "00000000",
-    startDay: "14",
-    startMonth: "Março", //substituir por months.3
-    startYear: "2019",
-    endDay: "25",
-    endMonth: "Maio",
-    endYear: "2019",
-    totalHours: "50",
-    presidentName: campusInfo.sanca.president,
-    presidentRole: `Presidente do ${campusInfo.sanca.name}`,
-    professorName: campusInfo.sanca.professor,
-    professorRole: `Prof. Tutora do ${campusInfo.sanca.name}`
-}
 
-console.log(context)
-console.log(months)
+console.log(info)
 
-let templatePath = path.join(__dirname, 'template.html');
+let templatePath = path.join(__dirname, 'template1.html');
 let certificatePath = path.join(__dirname, 'certificate.pdf');
 
 let html = fs.readFileSync(templatePath, 'utf8');
@@ -70,7 +61,7 @@ let options = {
 let document = {
     type: 'file',     // 'file' or 'buffer'
     template: html,
-    context: context,
+    context: info[0],
     path: certificatePath   // it is not required if type is buffer
 };
 
