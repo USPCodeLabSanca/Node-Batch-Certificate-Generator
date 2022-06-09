@@ -34,20 +34,19 @@ const campusInfo = {
 let info = csv_parser(path.join(__dirname,"info.csv"), "utf-8")
 
 for (const line of info) {
-    line.campusName = campusInfo[line.campus].name
-    line.campusPresident = campusInfo[line.campus].president
-    line.campusVicePresident = campusInfo[line.campus].vicePresident
-    line.campusProfessor = campusInfo[line.campus].professor
-
-    // info[0].presidentRole = `Presidente do ${campusInfo[info[0].campus].president}`
-    // info[0].professorRole = `Prof. Tutora do ${campusInfo[info[0].campus].professor}`
+    line.presidentName = campusInfo[line.campus].president
+    line.professorName = campusInfo[line.campus].professor
+	line.presidentRole = `Presidente do ${campusInfo[line.campus].name}`
+    line.professorRole = `Prof. Tutora do ${campusInfo[line.campus].name}`
+    
+	//line.campusName = campusInfo[line.campus].name
+	//line.campusVicePresident = campusInfo[line.campus].vicePresident
 }
 
-
-console.log(info)
-
 let templatePath = path.join(__dirname, 'template1.html');
-let certificatePath = path.join(__dirname, 'certificate.pdf');
+let infoPath = [];
+for (const line of info) 
+	infoPath.push({info: line, path: path.join(__dirname, `certificados/${line.title}-${line.name}-${line.nusp}-${line.endYear}.pdf`)});
 
 let html = fs.readFileSync(templatePath, 'utf8');
 
@@ -61,14 +60,18 @@ let options = {
 let document = {
     type: 'file',     // 'file' or 'buffer'
     template: html,
-    context: info[0],
-    path: certificatePath   // it is not required if type is buffer
+    context: '',
+    path: ''   // it is not required if type is buffer
 };
 
-pdf.create(document, options)
-    .then(res => {
-        console.log(res)
-    })
-    .catch(error => {
-        console.error(error)
-    });
+for(const ip of infoPath) {
+	document.context = ip.info
+	document.path = ip.path
+	pdf.create(document, options)
+		.then(res => {
+			console.log(res)
+		})
+		.catch(error => {
+			console.error(error)
+		});
+}
