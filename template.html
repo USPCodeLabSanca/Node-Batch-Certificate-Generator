@@ -4,13 +4,13 @@
         <meta charset="UTF-8">
     </head>
     <body>
+        <img src="https://i.imgur.com/upynaAf.png" id="logo">
         <h1>Certificado de participaçao</h1>
         <h2>{{title}}</h2>
         <p id="texto">O USP Codelab certifica que {{name}}, de número USP {{nusp}}, participou do curso '{{title}}', oferecido entre {{startDay}} de {{startMonth}} de {{startYear}} e {{endDay}} de {{endMonth}} de {{endYear}}, totalizando {{totalHours}} de atividades. </p>
         
         <div class = "bottom">
             <div class = "presidente">
-                <img src="https://i.imgur.com/upynaAf.png" id="logo">
                 <img id="assinatura do presidente">
                 <p class = "assinaturas">{{presidentName}} <br> {{presidentRole}}</p>
             </div>
@@ -80,7 +80,7 @@
         }
 
         #texto{
-            margin-top: 5cm;
+            margin-top: 3cm;
             margin-bottom: 5cm;
 
         }
@@ -91,11 +91,12 @@
         }
 
         .bottom{
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            padding: 3cm;
         }
 
+        #logo{
+            width: 3cm;
+            margin-left: 3cm;
+        }
 
 
         
