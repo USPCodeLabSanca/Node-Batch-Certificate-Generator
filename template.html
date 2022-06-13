@@ -4,8 +4,22 @@
         <meta charset="UTF-8">
     </head>
     <body>
+        <img src="https://i.imgur.com/upynaAf.png" id="logo">
         <h1>Certificado de participaçao</h1>
-        <h2>dev.learn()</h2>
+        <h2>{{title}}</h2>
+        <p id="texto">O USP Codelab certifica que {{name}}, de número USP {{nusp}}, participou do curso '{{title}}', oferecido entre {{startDay}} de {{startMonth}} de {{startYear}} e {{endDay}} de {{endMonth}} de {{endYear}}, totalizando {{totalHours}} de atividades. </p>
+        
+        <div class = "bottom">
+            <div class = "presidente">
+                <img id="assinatura do presidente">
+                <p class = "assinaturas">{{presidentName}} <br> {{presidentRole}}</p>
+            </div>
+            <div class="professor">
+                <img id="assinatura do professor">
+                <p class = "assinaturas">{{professorName}} <br> {{professorRole}}</p>
+            </div>
+        </div>
+
     </body>
 
     <style>
@@ -52,6 +66,40 @@
             border-collapse: collapse;
             border-spacing: 0;
         }
+        h1{
+            font-size: 0.7cm;
+            text-align: center;
+            padding-top:0.1cm;
+            padding-bottom:0.1cm;
+        }
+        h2{
+            font-size: 0.5cm;
+            text-align: center;
+            padding-top: 0.1cm;
+            padding-bottom:0.1cm;
+        }
+
+        #texto{
+            margin-top: 3cm;
+            margin-bottom: 5cm;
+
+        }
+        .assinaturas{
+            font-size: 0.1cm;
+            color: grey;
+            text-align: left;
+        }
+
+        .bottom{
+        }
+
+        #logo{
+            width: 3cm;
+            margin-left: 3cm;
+        }
+
+
+        
     </style>
 
     <style>

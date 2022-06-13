@@ -43,7 +43,7 @@ for (const line of info) {
 	//line.campusVicePresident = campusInfo[line.campus].vicePresident
 }
 
-let templatePath = path.join(__dirname, 'template1.html');
+let templatePath = path.join(__dirname, 'template.html');
 let infoPath = [];
 for (const line of info) 
 	infoPath.push({info: line, path: path.join(__dirname, `certificados/${line.title}-${line.name}-${line.nusp}-${line.endYear}.pdf`)});
@@ -83,4 +83,4 @@ for(const ip of infoPath) {
 }
 Promise.all(promise_array)
 let end = Date.now()
-console.log(end-start);
+console.log(end-start, "miliseconds");
