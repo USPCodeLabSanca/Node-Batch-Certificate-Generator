@@ -66,10 +66,11 @@ let document = {
 
 let start = Date.now()
 
+const promise_array = []
 for(const ip of infoPath) {
 	document.context = ip.info
 	document.path = ip.path
-	pdf.create(document, options)
+	const promise = new Promise(() => pdf.create(document, options)
 		.then(res => {
             let end = Date.now()
             console.log(end-start);
@@ -77,7 +78,9 @@ for(const ip of infoPath) {
 		})
 		.catch(error => {
 			console.error(error)
-		});
+		}))
+    promise_array.push(promise)
 }
+Promise.all(promise_array)
 let end = Date.now()
 console.log(end-start);
