@@ -33,15 +33,17 @@ const campusInfo = {
 
 let info = csv_parser(path.join(__dirname,"info.csv"), "utf-8")
 
+
 for (const line of info) {
     line.presidentName = campusInfo[line.campus].president
     line.professorName = campusInfo[line.campus].professor
-	line.presidentRole = `Presidente do ${campusInfo[line.campus].name}`
+	  line.presidentRole = `Presidente do ${campusInfo[line.campus].name}`
     line.professorRole = `Prof. Tutora do ${campusInfo[line.campus].name}`
     
 	//line.campusName = campusInfo[line.campus].name
 	//line.campusVicePresident = campusInfo[line.campus].vicePresident
 }
+
 
 let templatePath = path.join(__dirname, 'template.html');
 let infoPath = [];
@@ -61,8 +63,10 @@ let options = {
 let document = {
     type: 'file',     // 'file' or 'buffer'
     template: html,
+
     context: '',
     path: ''   // it is not required if type is buffer
+
 };
 
 let start = Date.now()
