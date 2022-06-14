@@ -43,7 +43,7 @@ for (const line of info) {
 
 console.log(info)
 
-let templatePath = path.join(__dirname, 'template1.html');
+let templatePath = path.join(__dirname, 'template.html');
 let certificatePath = path.join(__dirname, 'certificate.pdf');
 
 let html = fs.readFileSync(templatePath, 'utf8');
