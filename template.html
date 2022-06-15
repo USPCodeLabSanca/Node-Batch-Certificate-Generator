@@ -5,20 +5,14 @@
     </head>
     <body>
         <img src="https://i.imgur.com/upynaAf.png" id="logo">
-        <h1>Certificado de participaçao</h1>
+        <h1>Certificado de participação</h1>
         <h2>{{title}}</h2>
-        <p id="texto">O USP Codelab certifica que {{name}}, de número USP {{nusp}}, participou do curso '{{title}}', oferecido entre {{startDay}} de {{startMonth}} de {{startYear}} e {{endDay}} de {{endMonth}} de {{endYear}}, totalizando {{totalHours}} de atividades. </p>
-        
-        <div class = "bottom">
-            <div class = "presidente">
-                <img id="assinatura do presidente">
-                <p class = "assinaturas">{{presidentName}} <br> {{presidentRole}}</p>
-            </div>
-            <div class="professor">
-                <img id="assinatura do professor">
-                <p class = "assinaturas">{{professorName}} <br> {{professorRole}}</p>
-            </div>
-        </div>
+        <p id="texto">O USP Codelab certifica que {{name}}, de número USP {{nusp}}, participou do curso '{{title}}', oferecido entre {{startDay}} de {{startMonth}} de {{startYear}} e {{endDay}} de {{endMonth}} de {{endYear}}, totalizando {{totalHours}} horas de atividades. </p>
+	<p>{{presidentName}}</p>
+        <img class="assinatura-imagem" src="http://www.medicinaintensiva.com.br/larrey-assinatura.jpg" > 
+        <p class="assinaturas">Presidente do {{campusName}} <br> {{campusPresident}}</p>
+        <img class="assinatura-imagem" src="http://www.medicinaintensiva.com.br/larrey-assinatura.jpg" > 
+        <p class="assinaturas">Prof. Tutor do {{campusName}} <br> {{campusProfessor}}</p>
 
     </body>
 
@@ -50,6 +44,7 @@
         }
         body {
             line-height: 1;
+	    font-family: "Courier New";
         }
         ol, ul {
             list-style: none;
@@ -67,35 +62,36 @@
             border-spacing: 0;
         }
         h1{
-            font-size: 0.7cm;
+            font-size: 0.9cm;
             text-align: center;
-            padding-top:0.1cm;
             padding-bottom:0.1cm;
         }
         h2{
-            font-size: 0.5cm;
+            font-size: 0.7cm;
             text-align: center;
             padding-top: 0.1cm;
             padding-bottom:0.1cm;
         }
 
         #texto{
-            margin-top: 3cm;
-            margin-bottom: 5cm;
+	    font-size: 0.6cm;
+	    padding:1.5cm;
+	    text-align: justify;
 
         }
+	
         .assinaturas{
-            font-size: 0.1cm;
-            color: grey;
+            font-size: 0.3cm;
+	    color:grey;
             text-align: left;
         }
-
-        .bottom{
-        }
+	.assinatura-imagem{
+	    width:1.5cm;
+	}
 
         #logo{
-            width: 3cm;
-            margin-left: 3cm;
+            width:4cm;
+	    margin-left: 3cm;
         }
 
 
