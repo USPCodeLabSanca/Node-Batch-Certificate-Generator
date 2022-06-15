@@ -84,17 +84,17 @@ const promise_array = []
 for(const ip of infoPath) {
 	document.context = ip.info
 	document.path = ip.path
-	const promise = new Promise(() => pdf.create(document, options)
-		.then(res => {
-            let end = Date.now()
-            console.log(end-start);
-			//console.log(res)
-		})
-		.catch(error => {
-			console.error(error)
-		}))
-    promise_array.push(promise)
+	const promise = pdf.create(document, options)
+        promise_array.push(promise)
 }
+
+
 Promise.all(promise_array)
-let end = Date.now()
-console.log(end-start, "miliseconds");
+    .then((data) => {
+        console.log(data)
+        let end = Date.now()
+        console.log((end-start)/1000, "seconds");
+    })
+    .catch((error)=>{
+        console.log(error)
+    })
