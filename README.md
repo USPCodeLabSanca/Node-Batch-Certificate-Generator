@@ -1,5 +1,14 @@
 # Node-Batch-Certificate-Generator
 
+## Requirements How to run: 
+A version of Node that supports **Classes** is necessary for running the program. We recomend current node/npm LTS: 18.3.0 / npm 8.11.0. 
+
+After installing node, cloning and entering the repo: 
+
+```
+npm install
+npm run start
+```
 ## Sobre a aplicação
 
 **Batch** se refere a **programas de processamento em lotes**. Usualmente possuem **pouca ou nenhuma interação com o usuários**, e são **executados manualmente ou agendados** para execução periódica automatizada.
