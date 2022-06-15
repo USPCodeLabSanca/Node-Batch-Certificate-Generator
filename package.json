@@ -1,5 +1,5 @@
 {
-  "name": "batch-certificate-generator",
+  "name": "node-batch-certificate-generator",
   "version": "1.0.0",
   "description": "## Sobre a aplicação",
   "main": "main.js",
@@ -20,6 +20,5 @@
   "homepage": "https://github.com/USPCodeLabSanca/Node-Batch-Certificate-Generator#readme",
   "dependencies": {
     "dynamic-html-pdf": "^1.0.4"
-  },
-  "devDependencies": {}
+  }
 }
