@@ -1,62 +1,65 @@
 const fs = require('fs')
 const pdf = require('dynamic-html-pdf'); //objto no sentido de instancia de classes
 let path = require('path');
+const csv_parser = require('./csv-parser');
 
 const campusInfo = {
     "sanca": {
         name: "USPCodeLab São Carlos",
         president: "Gabriel Freitas Ximenes de Vasconcelos",
         vicePresident: "Raíssa Torres Barreira",
-        professor: "Sarita Mazzini Bruschi"
+        professor: "Sarita Mazzini Bruschi",
+        image: "https://i.imgur.com/rhS164j.png",
+        presidentSign: "https://i.imgur.com/wskh0W1.png",
+        professorSign: "https://i.imgur.com/wskh0W1.png"
     },
     "leste": {
         name: "USPCodeLab Leste",
         president: "Rodrigo Dorneles Ferreira de Souza",
         vicePresident: "Yago Silva",
-        professor: "Daniel De Angelis Cordeiro"
+        professor: "Daniel De Angelis Cordeiro",
+        image: "https://i.imgur.com/F40DizY.png", 
+        presidentSign: "https://i.imgur.com/wskh0W1.png",
+        professorSign: "https://i.imgur.com/wskh0W1.png"
     },
     "butanta": {
         name: "USPCodeLab Butanta",
         president: "Gabriel Fernandes Mota",
         vicePresident: "Luiz Carlos Costa da Silva",
-        professor: "Alfredo Goldman"
+        professor: "Alfredo Goldman",
+        image: "https://i.imgur.com/5AXmSZK.png",
+        presidentSign: "https://i.imgur.com/wskh0W1.png",
+        professorSign: "https://i.imgur.com/wskh0W1.png"
     },
     "ufabc": {
         name: "CodeLab UFABC",
         president: "Não sei UFABC Presidente",
         vicePresident: "Não sei UFABC Vice",
         professor: "Não sei UFABC Professor",
+        presidentSign: "https://i.imgur.com/wskh0W1.png",
+        professorSign: "https://i.imgur.com/wskh0W1.png"
     }, 
 }
 
-const months = {
-    1: "Janeiro",
-    2: "Fevereiro"
-}
 
-let context = {
-    campus: campusInfo.sanca.name,
-    title: "dev.learn(2019.1)",
-    name: "Nome Sobrenome",
-    nusp: "00000000",
-    startDay: "14",
-    startMonth: "Março", //substituir por months.3
-    startYear: "2019",
-    endDay: "25",
-    endMonth: "Maio",
-    endYear: "2019",
-    totalHours: "50",
-    presidentName: campusInfo.sanca.president,
-    presidentRole: `Presidente do ${campusInfo.sanca.name}`,
-    professorName: campusInfo.sanca.professor,
-    professorRole: `Prof. Tutora do ${campusInfo.sanca.name}`
-}
+let info = csv_parser(path.join(__dirname,"info.csv"), "utf-8")
 
-console.log(context)
-console.log(months)
+
+for (const line of info) {
+    line.campusName = campusInfo[line.campus].name
+    line.campusPresident = campusInfo[line.campus].president
+    line.campusVicePresident = campusInfo[line.campus].vicePresident
+    line.campusProfessor = campusInfo[line.campus].professor
+    line.campusImage = campusInfo[line.campus].image
+    line.presidentSign = campusInfo[line.campus].presidentSign
+    line.professorSign = campusInfo[line.campus].professorSign
+}
 
 let templatePath = path.join(__dirname, 'template.html');
-let certificatePath = path.join(__dirname, 'certificate.pdf');
+let infoPath = [];
+for (const line of info) 
+	infoPath.push({info: line, path: path.join(__dirname, `certificados/${line.title}-${line.name}-${line.nusp}-${line.endYear}.pdf`)});
+
 
 let html = fs.readFileSync(templatePath, 'utf8');
 
@@ -66,18 +69,32 @@ let options = {
     height: "21cm"
 };
 
-// batch (processamento em lotes)
 let document = {
     type: 'file',     // 'file' or 'buffer'
     template: html,
-    context: context,
-    path: certificatePath   // it is not required if type is buffer
+
+    context: '',
+    path: ''   // it is not required if type is buffer
+
 };
 
-pdf.create(document, options)
-    .then(res => {
-        console.log(res)
+let start = Date.now()
+
+const promise_array = []
+for(const ip of infoPath) {
+	document.context = ip.info
+	document.path = ip.path
+	const promise = pdf.create(document, options)
+        promise_array.push(promise)
+}
+
+
+Promise.all(promise_array)
+    .then((data) => {
+        console.log(data)
+        let end = Date.now()
+        console.log((end-start)/1000, "seconds");
     })
-    .catch(error => {
-        console.error(error)
-    });
+    .catch((error)=>{
+        console.log(error)
+    })

@@ -4,8 +4,38 @@
         <meta charset="UTF-8">
     </head>
     <body>
-        <h1>Certificado de participaçao</h1>
-        <h2>dev.learn()</h2>
+        <div id = "title">
+            <img src="https://i.imgur.com/upynaAf.png" id="logo">
+            <div id = "titleText">
+                <b>
+                    <h1>Certificado de participação</h1>
+                    <h2>{{title}}</h2>
+                </b>
+            </div>
+        </div>
+
+        <p id="texto">O <b>{{campusName}}</b> certifica que <b>{{name}}</b>, de número USP <b>{{nusp}}</b>, participou do curso <b>'{{title}}'</b>, oferecido entre {{startDay}} de {{startMonth}} de {{startYear}} e {{endDay}} de {{endMonth}} de {{endYear}}, totalizando <b>{{totalHours}} horas</b> de atividades. </p>
+	    
+        <footer>
+            <img id="campusImage" src = "{{campusImage}}">
+            <div id = "signatures">
+            
+                <div class = "signer">
+                    <img class="assinatura-imagem" src="{{presidentSign}}" > 
+                    <p class="assinaturas">Presidente do {{campusName}} <br> {{campusPresident}}</p>
+                </div>
+    
+                <div class = "signer">
+                    <img class="assinatura-imagem" src="{{professorSign}}" > 
+                    <p class="assinaturas">Prof. Tutor do {{campusName}} <br> {{campusProfessor}}</p>
+                </div>
+                
+            </div>
+        </footer>
+        
+        
+        
+
     </body>
 
     <style>
@@ -36,6 +66,7 @@
         }
         body {
             line-height: 1;
+	        font-family: "Courier New";
         }
         ol, ul {
             list-style: none;
@@ -56,8 +87,68 @@
 
     <style>
         body{
-            background-image: url("https://i.imgur.com/f8Npu3N.png");
+            background-image: url("https://i.imgur.com/zsDJpft.png");
             background-size: contain;
+            font-family: Montserrat,sans-serif;
         }
+
+        #title {
+            padding-left: 1cm;
+        }
+
+        #titleText{
+            text-align: center;
+            padding-top: 2cm;
+        }
+        #logo{
+            width:5cm;
+            float: left;
+        }
+
+        #campusImage{
+            width: 10cm;
+            float: left;
+        }
+        h1{
+            font-size: 0.9cm;
+
+        }
+        h2{
+            font-size: 0.7cm;
+
+        }
+
+        #texto{
+            font-size: 0.6cm;
+            padding: 1.5cm;
+            padding-top: 3cm;
+            text-align: justify;
+        }
+
+        footer{
+            padding-top: 2cm;
+            padding-left: 0.5cm;
+        }
+        .assinaturas{
+            font-size: 0.3cm;
+	        color:rgb(0, 0, 0);
+            text-align: center;
+        }
+
+        .assinatura-imagem{
+            width:4cm;
+            display:block;
+            margin:auto;
+        }
+
+        .signer{
+            float: left;
+            padding-left: 0.2cm;
+        }
+        b{
+            font-weight: bold;
+        }
+        
+
     </style>
 </html>
